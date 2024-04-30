@@ -7,7 +7,7 @@ const NavComponente = () => {
       <div className="container-fluid">
         <div className="navbar-brand">
           <h1 className="mb-0">
-            <a className="text-dark" href="#">Market Plus</a>
+            <a className="text-dark" href="#">Urban Trade</a>
           </h1>
         </div>
         
