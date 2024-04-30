@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import NavComponentes from './componentes/NavComponente.jsx';
+import ItemListContainer from './componentes/ItemListContainer.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const App = () => {
+  return (
+    <div>
+      <NavComponentes />
+      <ItemListContainer greeting="Bienvenido a nuestra tienda en línea" />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
