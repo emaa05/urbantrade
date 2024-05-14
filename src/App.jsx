@@ -1,13 +1,18 @@
 import React from 'react';
-import NavComponente from './componentes/NavComponente.jsx';
-import ItemListContainer from './componentes/ItemListContainer.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavComponente from './componentes/NavBar/NavComponente';
+import ProductsList from './componentes/ProductsView/ProductsList';
 
 function App() {
   return (
-    <div className="App">
-      <NavComponente />
-      <ItemListContainer greeting="¡Hola desde ItemListContainer!" />
-    </div>
+    <Router>
+      <div className="App">
+        <NavComponente />
+        <Routes>
+          <Route path="/Ropa" element={<ProductsList />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
