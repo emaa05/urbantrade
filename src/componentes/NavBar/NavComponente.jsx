@@ -16,13 +16,13 @@ const NavComponente = () => {
               <Link className="nav-link" to="/">Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/ropa">Ropa</Link>
+              <Link className="nav-link" to="/category/Ropa">Ropa</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/zapatillas">Zapatillas</Link>
+              <Link className="nav-link" to="/category/Zapatillas">Zapatillas</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/ropa-deportiva">Ropa Deportiva</Link>
+              <Link className="nav-link" to="/category/Deportiva">Ropa Deportiva</Link>
             </li>
           </ul>
         </div>

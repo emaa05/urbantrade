@@ -1,28 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { getProducts } from '../asyncMock';
+import { CartContext } from '../Carrito/CarritoContext';
 
-const products = [
-  {
-    id:1,
-    title:'remera',
-    img:'https://levisarg.vtexassets.com/arquivos/ids/873734/2249135550_1.jpg?v=638488760542500000',
-    price:10,
-  },
-  {
-    id:2,
-    title:'pantalón',
-    img:'https://levisarg.vtexassets.com/arquivos/ids/757246/272_648cd5ff444a6.jpg?v=638260769365870000',
-    price: 15,
-  },
-  {
-    id:3,
-    title:'bermuda',
-    img:'https://levisarg.vtexassets.com/arquivos/ids/822549/272_651c8bce834bd.jpg?v=638319667049930000',
-    price:5,
-  }
-  
-];
+const ProductList = () => {
+  const { addToCart } = useContext(CartContext);
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
-const ProductsList = () => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const productsData = await getProducts;
+      if (category) {
+        setProducts(productsData.filter(product => product.category === category));
+      } else {
+        setProducts(productsData);
+      }
+    };
+    fetchProducts();
+  }, [category]);
+
   return (
     <div className="container mt-4">
       <div className="row">
@@ -33,6 +30,8 @@ const ProductsList = () => {
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">Price: ${product.price}</p>
+                <button className='btn btn-primary btn-lg' onClick={() => addToCart(product)}>Añadir al Carrito</button>
+                <Link to={`/product/${product.id}`}><button className='btn btn-info btn-lg ml-4'>Detalles</button></Link>
               </div>
             </div>
           </div>
@@ -42,4 +41,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default ProductList;
