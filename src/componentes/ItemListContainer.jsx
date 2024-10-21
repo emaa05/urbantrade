@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProducts } from '../firebase/firebase';
-import { Link } from 'react-router-dom';
+import { getProducts } from '../firebase/repository';
 import { useCart } from './Carrito/CarritoContext'; 
 
 export default function ItemListContainer({ selectedBrand }) {

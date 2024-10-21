@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from './CarritoContext';
 import Swal from 'sweetalert2';
-import { addOrder } from '../../firebase/firebase'; 
+import { addOrder } from '../../firebase/repository'; 
 
 const Carrito = () => {
     const { cart, clearCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
@@ -11,9 +11,6 @@ const Carrito = () => {
         phone: ''
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
 
     const calcularTotal = () => {
         if (cart.length === 0) {
